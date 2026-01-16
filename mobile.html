@@ -1,30 +1,75 @@
-<html>
-  <title>Kieren VA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body{
-        margin: 0; /* Remove default margin */
-    }
-    iframe{
-        display: block;  /* iframes are inline by default */ /* Changed from 'grid' to match desktop behavior */
-        height: calc(100vh + 50px);  /* Set height to 100% of the viewport height */ /* Trying to find the right balance without cutting off the menu */
-        /* width: calc(100vw + 40px);  /* Set width to 100% of the viewport width */
-        width: 100%;  /* Set width to 100% of the viewport width */ /* changed from 100vw to 100% to fix black bars */
-        border: none; /* Remove default border */
-        background: rgb(0, 0, 0); /* Just for styling */
-        top: -46px; /* Trying to find the right balance without cutting off the menu */
-    }
-</style>
-  <body>
-  
-    <iframe src="https://kierenstjames2.wixsite.com/kieren-st-james" style="position:absolute; overflow:hidden;">
-    </iframe>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kieren VA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-  </body>
-<script type="text/javascript">
-  if (screen.width >= 900) {
-  document.location = "./index.html";
-  }
-</script>
+    <style>
+        /* RESET 
+           Ensures the page takes up the full window size without white borders.
+        */
+        body, html {
+            width: 100%; 
+            height: 100%; 
+            margin: 0; 
+            padding: 0;
+            overflow: hidden; /* Prevents scrollbars on the main window */
+            background-color: rgb(0, 0, 0); /* Your preferred background color */
+        }
 
+        /* MAIN CONTAINER 
+           This holds the iframe.
+           It uses 'display: flex' and 'flex-direction: column' to stack elements.
+        */
+        .row-container {
+            display: flex; 
+            width: 100%; 
+            height: 100%; 
+            flex-direction: column; 
+        }
+
+        /* IFRAME
+           'flex-grow: 1' tells this element to expand.
+           We add positioning to shift the iframe up by 46px (likely to hide a header)
+           and increase the height to compensate.
+        */
+        .second-row { 
+            flex-grow: 1; 
+            border: none; 
+            margin: 0; 
+            padding: 0; 
+            width: 100%;
+            background: rgb(0, 0, 0);
+
+            /* Shifting logic to hide top content */
+            position: relative;        /* Required for 'top' to work */
+            top: -46px;               /* Pulls the iframe up */
+            height: calc(100% + 46px); /* Adds extra height to fill the gap at the bottom */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="row-container">
+        
+        <!-- content from the first snippet (Your Wix Site) -->
+        <iframe 
+            src="https://kierenstjames2.wixsite.com/kieren-st-james" 
+            class="second-row"
+            title="Kieren VA Site">
+        </iframe>
+
+    </div>
+
+    <!-- Your Redirect Script -->
+    <script type="text/javascript">
+        // This checks if the screen is wide (Desktop) and redirects.
+        // Ensure you have a file named 'index.html' in the same folder for this to work.
+        if (screen.width >= 900) {
+            document.location = "./index.html";
+        }
+    </script>
+
+</body>
 </html>
