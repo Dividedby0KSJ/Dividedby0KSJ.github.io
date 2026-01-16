@@ -6,13 +6,13 @@
         margin: 0; /* Remove default margin */
     }
     iframe{
-        display: grid;  /* iframes are inline by default */
-        height: calc(100vh + 52.5px);  /* Set height to 100% of the viewport height */
+        display: block;  /* iframes are inline by default */ /* Changed from 'grid' to match desktop behavior */
+        height: calc(100vh + 55px);  /* Set height to 100% of the viewport height */ /* Increased slightly to account for the hidden banner */
 /*        width: calc(100vw + 40px);  /* Set width to 100% of the viewport width */
         width: 100vw;  /* Set width to 100% of the viewport width */
         border: none; /* Remove default border */
         background: rgb(0, 0, 0); /* Just for styling */
-        /* top: -45px; */
+        top: -55px;
         /* right: -60px; */
     }
 </style>
