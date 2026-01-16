@@ -3,71 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <title>Kieren VA</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
     <style>
-        /* RESET 
-           Ensures the page takes up the full window size without white borders.
-        */
+        /* RESET */
         body, html {
             width: 100%; 
             height: 100%; 
             margin: 0; 
             padding: 0;
-            overflow: hidden; /* Prevents scrollbars on the main window */
-            background-color: rgb(0, 0, 0); /* Your preferred background color */
+            overflow: hidden; 
+            background-color: rgb(0, 0, 0); 
+            /* Fix for iOS tap highlighting */
+            -webkit-tap-highlight-color: transparent;
+
+            /* HIDE SCROLLBARS (Firefox/IE/Edge) */
+            scrollbar-width: none; 
+            -ms-overflow-style: none; 
         }
 
-        /* MAIN CONTAINER 
-           This holds the iframe.
-           It uses 'display: flex' and 'flex-direction: column' to stack elements.
-        */
+        /* HIDE SCROLLBARS (Chrome/Safari/Webkit) */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* MAIN CONTAINER */
         .row-container {
-            display: flex; 
+            position: relative;
             width: 100%; 
             height: 100%; 
-            flex-direction: column; 
+            overflow: hidden; /* Ensures the negative margin crop doesn't cause scrollbars */
         }
 
-        /* IFRAME
-           'flex-grow: 1' tells this element to expand.
-           We add positioning to shift the iframe up by 46px (likely to hide a header)
-           and increase the height to compensate.
-        */
+        /* IFRAME */
         .second-row { 
-            flex-grow: 1; 
             border: none; 
             margin: 0; 
             padding: 0; 
-            width: 100%;
-            background: rgb(0, 0, 0);
-
-            /* Shifting logic to hide top content */
-            position: relative;        /* Required for 'top' to work */
-            top: -46px;               /* Pulls the iframe up */
-            height: calc(100% + 46px); /* Adds extra height to fill the gap at the bottom */
+            display: block;
+            
+            /* Positioning logic is now simplified. 
+               We just let it sit in the container and use margins/zoom. */
+            background: rgb(0, 0, 0); 
+            
+            /* Center the iframe horizontally in case of any rounding errors */
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
 <body>
 
     <div class="row-container">
-        
-        <!-- content from the first snippet (Your Wix Site) -->
         <iframe 
             src="https://kierenstjames2.wixsite.com/kieren-st-james" 
             class="second-row"
             title="Kieren VA Site">
         </iframe>
-
     </div>
 
-    <!-- Your Redirect Script -->
     <script type="text/javascript">
-        // This checks if the screen is wide (Desktop) and redirects.
-        // Ensure you have a file named 'index.html' in the same folder for this to work.
-        if (screen.width >= 900) {
-            document.location = "./index.html";
+        // --- DYNAMIC ZOOM SCRIPT ---
+        function updateScale() {
+            const iframe = document.querySelector('.second-row');
+            
+            // Configuration
+            const topCrop = 52; // Pixels to crop from the top (Internal Wix pixels)
+            const targetVisibleWidth = 318; // The "Mobile Width" we want to simulate
+            
+            // 1. Calculate Zoom Factor
+            // We want the iframe to think it's 318px wide, but fill the whole screen.
+            let zoomFactor = window.innerWidth / targetVisibleWidth;
+            if (zoomFactor < 1) zoomFactor = 1;
+
+            // 2. Set the Width
+            // By fixing the width to 318px, we force the Wix site to be in its smallest mobile layout.
+            // The 'zoom' then blows this up to fill your iPhone screen.
+            iframe.style.width = `${targetVisibleWidth}px`;
+
+            // 3. Set the Zoom
+            // This property handles hit-testing much better than transform: scale() on iOS.
+            iframe.style.zoom = zoomFactor;
+
+            // 4. Firefox Fallback (Firefox doesn't support zoom)
+            // If 'zoom' doesn't exist or is ignored, we fallback to the old method (less perfect touch, but works visually)
+            if (typeof iframe.style.zoom === 'undefined' || iframe.style.zoom === '') {
+                iframe.style.transform = `scale(${zoomFactor})`;
+                iframe.style.transformOrigin = "0 0";
+                iframe.style.width = `${window.innerWidth / zoomFactor}px`;
+            }
+
+            // 5. Handle the Top Crop (Ad Removal)
+            // When using zoom, a negative margin of 52px is also zoomed.
+            // This means it correctly hides the ad which is also zoomed.
+            iframe.style.marginTop = `-${topCrop}px`;
+
+            // 6. Calculate Height
+            // We need enough internal height so that when zoomed, it covers the screen.
+            // Formula: (Screen Height / Zoom) + Crop Amount
+            const requiredInternalHeight = (window.innerHeight / zoomFactor) + topCrop;
+            iframe.style.height = `${requiredInternalHeight}px`;
+        }
+
+        // Run on load and resize
+        window.addEventListener('load', updateScale);
+        window.addEventListener('resize', updateScale);
+        
+        // --- REDIRECT SCRIPT ---
+        try {
+            if (screen.width >= 900) {
+                window.location.href = "index.html";
+            }
+        } catch (e) {
+            console.warn("Navigation prevented in preview environment:", e);
         }
     </script>
 
