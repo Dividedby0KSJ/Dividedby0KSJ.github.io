@@ -4,21 +4,28 @@
   <style>
     body{
         margin: 0; /* Remove default margin */
+        overflow-x: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    body::-webkit-scrollbar {
+        display: none;
     }
     iframe{
         display: block;  /* iframes are inline by default */ /* Changed from 'grid' to match desktop behavior */
         height: calc(100vh + 50px);  /* Set height to 100% of the viewport height */ /* Trying to find the right balance without cutting off the menu */
 /*        width: calc(100vw + 40px);  /* Set width to 100% of the viewport width */
-        width: 100%;  /* Set width to 100% of the viewport width */ /* changed from 100vw to 100% to fix black bars */
+        width: 100vw;  /* Set width to 100% of the viewport width */
         border: none; /* Remove default border */
         background: rgb(255, 0, 255); /* Just for styling */
         top: -46px; /* Trying to find the right balance without cutting off the menu */
         /* right: -60px; */
+        left: 0;
     }
 </style>
   <body>
   
-    <iframe src="https://kierenstjames2.wixsite.com/kieren-st-james" style="position:absolute; overflow:hidden;">
+    <iframe src="https://kierenstjames2.wixsite.com/kieren-st-james" style="overflow:hidden;">
     </iframe>  
     
   </body>
