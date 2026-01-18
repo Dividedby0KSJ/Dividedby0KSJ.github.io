@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<title>Test Kieren St James NEW Portfolio</title>
+<body>
+<style>
+    body{
+        margin: 0; /* Remove default margin */
+    }
+    iframe{
+        display: block;  /* iframes are inline by default */
+        /* height: calc(100vh + 52.5px);  /* Set height to 100% of the viewport height */
+        width: 100vw;  /* Set width to 100% of the viewport width */
+        border: none; /* Remove default border */
+        background: rgb(0, 0, 0); /* Just for styling */
+        top: -52.5px;
+        */
+    }
+</style>
+<iframe src="ocelot-lychee-tets.squarespace.com" style="position:absolute; overflow:hidden;">
+</iframe>
+</body>
+</html>
