@@ -16,9 +16,11 @@
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column; /* Stacks the boxes vertically */
             justify-content: center;
             align-items: center;
-            padding: 20px; /* Added padding for mobile screens */
+            padding: 40px 20px; /* More padding for scrolling */
+            gap: 30px; /* Space between the two boxes */
         }
         
         .container {
@@ -32,12 +34,12 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
             width: 100%;
             max-width: 500px;
+            position: relative;
         }
         
         .icon {
             font-size: 60px;
             margin-bottom: 10px;
-            /* Simple hover animation for the mail icon */
             transition: transform 0.3s ease;
         }
 
@@ -49,6 +51,12 @@
             color: #0066ff;
             font-size: 2.2em;
             margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #0066ff;
+            font-size: 1.8em;
+            margin-bottom: 20px;
         }
         
         p.subtitle {
@@ -80,7 +88,7 @@
             border-radius: 8px;
             color: #fff;
             font-family: inherit;
-            font-size: 16px; /* Prevents zoom on mobile */
+            font-size: 16px;
             transition: all 0.3s ease;
         }
         
@@ -116,17 +124,6 @@
             background: linear-gradient(135deg, #0077ff 0%, #0055cc 100%);
         }
         
-        button:active {
-            transform: translateY(0);
-        }
-
-        /* Success/Error message styling (hidden by default) */
-        .status-message {
-            margin-top: 15px;
-            font-size: 0.9em;
-            display: none;
-        }
-        
         .back-link {
             display: inline-block;
             margin-top: 25px;
@@ -139,22 +136,42 @@
         .back-link:hover {
             color: #fff;
         }
+
+        /* Calendar Styles */
+        .calendar-wrapper {
+            position: relative;
+            padding-bottom: 75%; /* Aspect ratio for the iframe */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .calendar-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .privacy-note {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #aaa;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
+    <!-- Box 1: Contact Form -->
     <div class="container">
         <div class="icon">📨</div>
         <h1>Get in Touch</h1>
         <p class="subtitle">Fill out the form below to send us a message.</p>
         
-        <!-- 
-            IMPORTANT FOR GITHUB PAGES:
-            1. Go to https://formspree.io/ and create a free account.
-            2. Create a new form project.
-            3. Replace 'YOUR_FORM_ID' below with the ID Formspree gives you.
-        -->
         <form action="https://formspree.io/f/mjggwzzz" method="POST">
-            
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -174,6 +191,29 @@
         </form>
 
         <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <!-- Box 2: Availability Calendar -->
+    <div class="container">
+        <div class="icon">📅</div>
+        <h2>My Availability</h2>
+        <p class="subtitle">Check the calendar below for available times.</p>
+        
+        <div class="calendar-wrapper">
+            <!-- 
+                HOW TO HIDE EVENT NAMES:
+                1. Go to Google Calendar on your computer.
+                2. Hover over your calendar on the left sidebar and click the 3 dots -> "Settings and sharing".
+                3. Scroll down to "Access permissions for events".
+                4. Check "Make available to public".
+                5. IMPORTANT: In the dropdown next to it, select "See only free/busy (hide details)".
+                
+                This ensures visitors only see "Busy" instead of "Lunch with Dave".
+            -->
+            <iframe src="https://calendar.google.com/calendar/embed?src=5jdbs2udgn1a28tqipk7vrivt8%40group.calendar.google.com&ctz=Australia%2FBrisbane" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+        
+        <p class="privacy-note">* Times marked as "Busy" indicate I am currently booked or unavailable.</p>
     </div>
 </body>
 </html>
