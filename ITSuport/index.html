@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Development</title>
+    <title>Contact Us</title>
     <style>
         * {
             margin: 0;
@@ -18,50 +18,162 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px; /* Added padding for mobile screens */
         }
         
         .container {
             text-align: center;
-            background: rgba(26, 26, 46, 0.95);
-            padding: 60px 40px;
+            /* Used a trick to keep the gradient border AND rounded corners */
+            background: linear-gradient(#1a1a2e, #1a1a2e) padding-box,
+                        linear-gradient(135deg, #0066ff 0%, #ff0000 100%) border-box;
+            border: 2px solid transparent;
+            padding: 50px 40px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            width: 100%;
             max-width: 500px;
-            border: 2px solid;
-            border-image: linear-gradient(135deg, #0066ff 0%, #ff0000 100%) 1;
         }
         
         .icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
+            font-size: 60px;
+            margin-bottom: 10px;
+            /* Simple hover animation for the mail icon */
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover .icon {
+            transform: scale(1.1);
         }
         
         h1 {
             color: #0066ff;
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            font-size: 2.2em;
+            margin-bottom: 10px;
         }
         
-        p {
+        p.subtitle {
             color: #e0e0e0;
-            font-size: 1.1em;
-            line-height: 1.6;
+            font-size: 1em;
             margin-bottom: 30px;
+            opacity: 0.8;
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            color: #e0e0e0;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 16px; /* Prevents zoom on mobile */
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #0066ff;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.2);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #0066ff 0%, #0044aa 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
+            background: linear-gradient(135deg, #0077ff 0%, #0055cc 100%);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Success/Error message styling (hidden by default) */
+        .status-message {
+            margin-top: 15px;
+            font-size: 0.9em;
+            display: none;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="icon">🖥️</div>
-        <h1>Coming Soon</h1>
-        <p>I'm building a platform where you can easily get in touch with me and book a consultation.</p>
-        <p>Stay tuned for updates as I work to bring this service online. Thank you for your patience!</p>
+        <div class="icon">📨</div>
+        <h1>Get in Touch</h1>
+        <p class="subtitle">Fill out the form below to send us a message.</p>
+        
+        <!-- 
+            IMPORTANT FOR GITHUB PAGES:
+            1. Go to https://formspree.io/ and create a free account.
+            2. Create a new form project.
+            3. Replace 'YOUR_FORM_ID' below with the ID Formspree gives you.
+        -->
+        <form action="https://formspree.io/f/mjggwzzz" method="POST">
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+            </div>
+            
+            <button type="submit">Send Message</button>
+        </form>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
     </div>
 </body>
 </html>
