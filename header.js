@@ -58,6 +58,10 @@ document.addEventListener("DOMContentLoaded", function() {
         <nav class="site-header-nav">
             <a href="/">Home</a>
             <a href="/ITSuport">IT Support</a>
+            <a href="/Resume">Resume</a>
+            <a href="/VA">Voice Acting</a>
+            <a href="/Art">Art Portfolio</a>
+            <a href="/About">About Me</a>
         </nav>
     </header>
     `;
