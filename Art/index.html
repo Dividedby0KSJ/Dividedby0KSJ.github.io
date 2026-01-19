@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Kieren St James</title>
-    <link rel="icon" href="favcon.png" type="image/png">
+    <title>Art Portfolio</title>
+    <link rel="icon" href="../favcon.png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -46,7 +46,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 800px;
         }
         
         .card {
@@ -55,7 +55,6 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            /* Style from ITSuport/index.html container */
             background: linear-gradient(#1a1a2e, #1a1a2e) padding-box,
                         linear-gradient(135deg, #0066ff 0%, #ff0000 100%) border-box;
             border: 2px solid transparent;
@@ -72,13 +71,15 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
         }
         
-        .icon {
-            font-size: 50px;
+        .favicon-icon {
+            width: 64px;
+            height: 64px;
             margin-bottom: 20px;
             transition: transform 0.3s ease;
+            object-fit: contain;
         }
 
-        .card:hover .icon {
+        .card:hover .favicon-icon {
             transform: scale(1.2);
         }
         
@@ -94,52 +95,42 @@
             line-height: 1.5;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5em; }
-            .grid-container { grid-template-columns: 1fr; }
+        .info-block {
+            margin-top: 50px;
+            color: #888;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 <body>
-
     <div class="header-section">
-        <h1>Welcome</h1>
-        <p class="subtitle">Select a destination to explore</p>
+        <h1>Art Portfolio</h1>
+        <p class="subtitle">External Galleries</p>
     </div>
 
     <div class="grid-container">
-        <!-- IT Support -->
-        <a href="../ITSuport" class="card">
-            <div class="icon">💻</div>
-            <h2>IT Support</h2>
-            <p class="desc">Technical assistance, troubleshooting, and guides.</p>
+        <a href="https://purelyhuman.xyz/artists/Divided%20By%20Z3ro" class="card" target="_blank">
+            <img src="https://www.google.com/s2/favicons?domain=purelyhuman.xyz&sz=128" class="favicon-icon" alt="PurelyHuman Icon">
+            <h2>PurelyHuman</h2>
+            <p class="desc">View my profile on PurelyHuman.</p>
         </a>
 
-        <!-- Resume -->
-        <a href="#" class="card">
-            <div class="icon">📄</div>
-            <h2>Resume</h2>
-            <p class="desc">Professional experience and skills overview.</p>
-        </a>
-
-        <!-- Voice Acting -->
-        <a href="https://kierenstjames2.wixsite.com/kieren-st-james" class="card">
-            <div class="icon">🎙️</div>
-            <h2>Voice Acting</h2>
-            <p class="desc">Demos, character reels, and past projects.</p>
-        </a>
-
-        <!-- Art Portfolio -->
-        <a href="../Art" class="card">
-            <div class="icon">🎨</div>
-            <h2>Art Portfolio</h2>
-            <p class="desc">Illustrations, sketches, and visual works.</p>
+        <a href="https://www.artstation.com/divided_by_0" class="card" target="_blank">
+            <img src="https://www.google.com/s2/favicons?domain=artstation.com&sz=128" class="favicon-icon" alt="ArtStation Icon">
+            <h2>ArtStation</h2>
+            <p class="desc">View my portfolio on ArtStation.</p>
         </a>
     </div>
 
-    <!-- Global Header Script -->
-    <script src="header.js"></script>
+    <div class="info-block">
+        A local Display on my website of my art will be made eventualy.
+    </div>
 
+    <!-- Global Header Script -->
+    <script src="../header.js"></script>
 </body>
 </html>
