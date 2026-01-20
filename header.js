@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
             display: flex;
             align-items: center;
             gap: 10px;
+            white-space: nowrap;
         }
 
         .site-header-nav {
@@ -47,6 +48,63 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #0066ff;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            margin-left: 0;
+            width: auto;
+            line-height: 1;
+        }
+
+        .header-spacer {
+            display: none;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 10px 20px;
+            }
+
+            .header-spacer {
+                display: block;
+                flex-grow: 1
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .site-header-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(22, 33, 62, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .site-header-nav.active {
+                display: flex;
+            }
+
+            .site-header-nav a {
+                font-size: 1.2rem;
+                padding: 15px 0;
+                display: block;
+                width: 100%;
+            }
+        }
+
         /* Push content down so it's not hidden behind the fixed header */
         body {
             padding-top: 80px !important;
@@ -55,6 +113,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <header class="site-header">
         <a href="/" class="site-header-logo">Kieren St James</a>
+        <div class="header-spacer"></div>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
         <nav class="site-header-nav">
             <a href="/">Home</a>
             <a href="/ITSuport">IT Support</a>
@@ -68,4 +128,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Inject the header at the very start of the body
     document.body.insertAdjacentHTML('afterbegin', headerHtml);
+
+    // Mobile Menu Logic
+    const btn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.site-header-nav');
+    
+    if (btn && nav) {
+        btn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            btn.textContent = nav.classList.contains('active') ? '✕' : '☰';
+        });
+    }
 });
