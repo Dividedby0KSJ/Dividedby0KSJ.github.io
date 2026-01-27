@@ -1,4 +1,4 @@
-The non live enviornment.
+The live enviornment.
 
 And yes i did use AI to make this website and yes Im ashamed.
 
