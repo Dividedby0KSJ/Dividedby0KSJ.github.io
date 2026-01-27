@@ -68,7 +68,7 @@
             const iframe = document.querySelector('.second-row');
             
             // Configuration
-            const topCrop = 52; // Pixels to crop from the top
+            const topCrop = 0; // Pixels to crop from the top
             const targetVisibleWidth = 318; // The "Mobile Width" we want to simulate
             
             // 1. Calculate Scale
@@ -110,7 +110,7 @@
         // --- REDIRECT SCRIPT ---
         try {
             if (screen.width >= 900) {
-                window.location.href = "index.html";
+                window.location.href = "../VA/index.html";
             }
         } catch (e) {
             console.warn("Navigation prevented in preview environment:", e);
