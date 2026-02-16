@@ -3,15 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta tag redirect (0 seconds delay) -->
-    <meta http-equiv="refresh" content="0; url=/WIP.html">
-    <title>Redirecting...</title>
-    <script>
-        // JavaScript redirect as a backup (replace() prevents back-button loops)
-        window.location.replace("/WIP.html");
-    </script>
+    <title>Resume | Kieren St James</title>
+    <link rel="icon" href="../favcon.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 40px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        h1 {
+            color: #0066ff;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        p.subtitle {
+            color: #e0e0e0;
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        .content-grid {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1400px;
+            gap: 40px;
+        }
+        
+        .resume-card {
+            flex: 1 1 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(#1a1a2e, #1a1a2e) padding-box,
+                        linear-gradient(135deg, #0066ff 0%, #ff0000 100%) border-box;
+            border: 2px solid transparent;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .pdf-container {
+            width: 100%;
+            height: 600px;
+            background-color: transparent;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        /* Vignette overlay to blend the hard edges */
+        .pdf-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 20px 10px #1a1a2e;
+            pointer-events: none;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: invert(1) hue-rotate(180deg);
+            mix-blend-mode: screen;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #0066ff 0%, #0044aa 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
+            background: linear-gradient(135deg, #0077ff 0%, #0055cc 100%);
+        }
+
+        @media (max-width: 768px) {
+            .resume-card {
+                flex-basis: 100%;
+            }
+            .pdf-container {
+                height: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>If you are not redirected automatically, please <a href="/WIP.html">click here</a>.</p>
+
+    <div class="header-section">
+        <h1>My Resumes</h1>
+        <p class="subtitle">View my professional and general resumes</p>
+    </div>
+
+    <div class="content-grid">
+        <!-- IT Professional Resume -->
+        <div class="resume-card">
+            <h2>IT Professional</h2>
+            <div class="pdf-container">
+                <!-- Replace 'IT_Resume.pdf' with your actual file name -->
+                <iframe src="/Resume/New%20IT%20Resume%20-%2016-02-26.pdf#toolbar=0"></iframe>
+            </div>
+            <a href="/Resume/New%20IT%20Resume%20-%2016-02-26.pdf" class="btn" download>Download PDF</a>
+        </div>
+
+        <!-- General Resume -->
+        <div class="resume-card">
+            <h2>General Resume</h2>
+            <div class="pdf-container">
+                <!-- Replace 'General_Resume.pdf' with your actual file name -->
+                <iframe src="/Resume/New%20General%20Resume%20-%2016-02-26.pdf#toolbar=0"></iframe>
+            </div>
+            <a href="/Resume/New%20General%20Resume%20-%2016-02-26.pdf" class="btn" download>Download PDF</a>
+        </div>
+    </div>
+
+    <!-- Global Header Script -->
+    <script src="../header.js"></script>
+
 </body>
 </html>
