@@ -1,0 +1,158 @@
+\documentclass[11pt, a4paper]{article}
+
+% --- UNIVERSAL PREAMBLE BLOCK ---
+% Tightened margins slightly to ensure a clean 2-page fit
+\usepackage[a4paper, top=1.8cm, bottom=1.8cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage{fontspec}
+\usepackage[english, bidi=basic, provide=*]{babel}
+
+% Set default/Latin font to Serif for maximum readability in the body
+% Use Sans Serif for headers/labels
+\babelfont{rm}{Noto Serif}
+\babelfont{sf}{Noto Sans}
+
+% Packages for styling
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+% Disable hyphenation globally to prevent awkward word breaks
+\usepackage[none]{hyphenat}
+
+% Adjusted line spacing for optimal fit
+\setstretch{1.02}
+
+% Define custom colors
+\definecolor{primary}{HTML}{1A1C1E}
+\definecolor{accent}{HTML}{44474A}
+
+% Tightened list spacing
+\setlist[itemize]{noitemsep, topsep=2pt, partopsep=0pt, parsep=1pt, leftmargin=1.2em}
+
+% Format Section Headers - Using Sans Serif (\sffamily)
+\titleformat{\section}{\large\sffamily\bfseries\color{primary}\uppercase}{}{0pt}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+}
+
+\begin{document}
+\raggedright % Prevents awkward stretching of text
+
+% --- CONTACT INFORMATION ---
+\begin{center}
+    {\Huge\sffamily \textbf{KIEREN ST JAMES}} \\
+    \vspace{2pt}
+    {\large\sffamily\color{accent} IT Asset Officer | IT Support Technician} \\
+    \vspace{4pt}
+    {\sffamily Loganholme, QLD 4129 \quad | \quad 0426 796 470} \\
+    {\sffamily \href{mailto:kierenstjames@gmail.com}{kierenstjames@gmail.com} \quad | \quad \href{http://www.kierenstjames.one}{www.kierenstjames.one}}
+\end{center}
+
+% --- PROFESSIONAL SUMMARY ---
+\section{Professional Summary}
+Detail-oriented IT Professional experienced in asset management, hardware lifecycle, and Level 1/2 support. Proven track record in improving deployment workflows and assisting non-technical users by simplifying complex concepts. Highly skilled in ServiceNow, OS imaging, and audio engineering, with a strong background in multimedia production and rapid prototyping.
+
+% --- TECHNICAL SKILLS ---
+\section{Technical Skills}
+\begin{itemize}
+    \item \textbf{IT Operations:} ServiceNow (Ticketing \& Asset Management), OS Re-Imaging (Windows/MacOS), Hardware Diagnostics \& Repair, IT Asset Distribution \& Tracking.
+    \item \textbf{Technical Support:} Level 1 \& 2 Help Desk Support, Troubleshooting, User Training, Cyber Security Awareness.
+    \item \textbf{Multimedia \& Audio:} 3D Modelling (Blender), \mbox{Adobe Premiere Pro}, Live Sound Reinforcement, Digital Audio Workstations (DAW), Audio Mixing \& Restoration.
+    \item \textbf{Professional:} Technical Communication, Rapid Prototyping, Process Improvement, Stakeholder Management.
+\end{itemize}
+
+% --- PROFESSIONAL EXPERIENCE (PART 1) ---
+\section{Professional Experience}
+
+\textbf{yourtown} \hfill \textit{2024 -- 2025} \\
+\textit{IT Asset Officer} \hfill Brisbane CBD, QLD
+\begin{itemize}
+    \item Manage the full lifecycle of IT hardware assets, including procurement, distribution, and tracking for a large-scale fleet.
+    \item Perform Operating System re-imaging and software configuration for desktops and laptops to ensure "ready-to-use" deployment.
+    \item Provide Level 1 and Level 2 IT support via ServiceNow, resolving technical incidents and service requests efficiently.
+    \item \textbf{Key Achievement:} Managed the deployment of a significant laptop fleet for a new business branch; implemented process improvements for device setup adopted by the Service Desk team.
+    \item Maintain high hardware functionality through consistent diagnostics, testing, and physical repairs.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{yourtown} \hfill \textit{2023 -- 2024} \\
+\textit{Digital Marketing Trainee} \hfill Loganholme, QLD
+\begin{itemize}
+    \item Produced and edited high-quality video content for marketing campaigns using \mbox{Adobe Premiere Pro}.
+    \item Developed and maintained organizational websites using the Wix CMS, ensuring accessibility and performance.
+    \item Designed professional marketing collateral and internal documentation using Canva.
+    \item Facilitated cyber security awareness training initiatives for staff.
+\end{itemize}
+
+\newpage
+
+% --- PROFESSIONAL EXPERIENCE (PART 2) ---
+\textbf{Anonymous Contractor} \hfill \textit{2020 -- 2021} \\
+\textit{Video/Audio \& Document Editor} \hfill Remote
+\begin{itemize}
+    \item Executed complex audio replacement projects, substituting foreign language voice-overs with English tracks while preserving original SFX and BGM.
+    \item Performed high-fidelity audio restoration and bit-rate enhancement for professional media projects.
+    \item Managed accurate data entry and formatting for corporate PowerPoint presentations.
+\end{itemize}
+
+\vspace{8pt}
+
+\textbf{Shane St James (Contract)} \hfill \textit{2016 -- Present} \\
+\textit{Sound Operator \& Stagehand} \hfill Various Locations
+\begin{itemize}
+    \item Oversee live audio production, managing sound effects, monitor mixes, and volume levels for touring performances.
+    \item Coordinate complex stage setups, including lighting rigs, signal routing, and technical equipment arrangement.
+\end{itemize}
+
+\vspace{8pt}
+
+\textbf{Springwood Library} \hfill \textit{2018 -- 2018} \\
+\textit{Library Hand} \hfill Springwood, QLD
+\begin{itemize}
+    \item Managed inventory organization and sorting of book returns.
+    \item Assisted patrons with technical inquiries and location of resources.
+\end{itemize}
+
+% --- PROJECTS & PORTFOLIO ---
+\section{Projects \& Portfolio}
+\begin{itemize}
+    \item \textbf{Independent IT Solutions (Startup):} Establishing a local IT consultancy providing custom PC builds, hardware maintenance, and home-office networking for residential clients.
+    \item \textbf{Audio Engineering \& Production:} Skilled technician for live and recorded performances; experienced in multi-track recording and high-fidelity audio restoration.
+    \item \textbf{3D Modelling \& Animation:} Developed 3D assets and environmental animations using Blender for professional creative projects.
+    \item \textbf{Web Portfolio:} Maintain \href{http://www.kierenstjames.one}{kierenstjames.one} as a showcase for technical skills and multimedia projects.
+\end{itemize}
+
+% --- EDUCATION & CERTIFICATIONS ---
+\section{Education \& Certifications}
+\begin{itemize}
+    \item \textbf{Certificate I in Workplace Skills} | Axiom College (2024)
+    \item \textbf{Certificate III in Information Technology (Game Development)} | Lightmare Studios (2019)
+    \item \textbf{Certificate III in Hospitality} (2022)
+    \item \textbf{Queensland Certificate of Education (QCE)} | Springwood State High School (2019)
+    \item \textbf{Certifications:} White Card, Blue Card (WWC), Responsible Service of Alcohol (RSA), RSG.
+\end{itemize}
+
+% --- REFERENCES ---
+\section{References}
+
+\textbf{Daniel Kempson} \hfill Former Senior IT Service Desk Member, yourtown \\
+\textit{Full Letter of Recommendation and professional details available upon request.}
+
+\vspace{6pt}
+
+\textbf{Toni O'Nell} \hfill Business Manager, Australia's Own Hypnotist \\
+\textit{Professional contact details available upon request.}
+
+\vspace{6pt}
+
+\textbf{Shane St James} \hfill Director / Lead Performer, Australia's Own Hypnotist \\
+\textit{Professional contact details available upon request.}
+
+\end{document}
