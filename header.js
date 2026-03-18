@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <a href="/Resume">Resume</a>
             <a href="/VA">Voice Acting</a>
             <a href="/Art">Art Portfolio</a>
-            <a href="/About">About Me</a>
+            <!-- <a href="/About">About Me</a> -->
         </nav>
     </header>
     `;
